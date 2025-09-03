@@ -2,4 +2,4 @@ Learning about the XRP Ledger one project at a time! Not necessarily a represent
 
 Notes:
 -The way they do comments is a bit weird....
-- projects also don't work outside of their code pens? Will need to change them on my own if I have time
+- projects also don't work outside of their code pens? Will need to change them on my own if I have time edit: realized there was in fact working demos with everything linked up nicely xD

@@ -2,17 +2,27 @@
 const tn = document.getElementById("tn");
 const dn = document.getElementById("dn");
 const standbyResultField = document.getElementById("standbyResultField");
-const operationalResultsField = document.getElementById("operationalResultField");
+const operationalResultsField = document.getElementById(
+    "operationalResultField"
+);
 const standbyAccountField = document.getElementById("standbyAccountField");
 const standbyPubKeyField = document.getElementById("standbyPubKeyField");
 const standbyPrivKeyField = document.getElementById("standbyPrivKeyField");
 const standbyBalanceField = document.getElementById("standbyBalanceField");
 const standbySeedField = document.getElementById("standbySeedField");
-const operationalAccountField = document.getElementById("operationalAccountField");
-const operationalPubKeyField = document.getElementById("operationalPubKeyField");
-const operationalPrivKeyField = document.getElementById("operationalPrivKeyField");
+const operationalAccountField = document.getElementById(
+    "operationalAccountField"
+);
+const operationalPubKeyField = document.getElementById(
+    "operationalPubKeyField"
+);
+const operationalPrivKeyField = document.getElementById(
+    "operationalPrivKeyField"
+);
 const operationalSeedField = document.getElementById("operationalSeedField");
-const operationalBalanceField = document.getElementById("operationalBalanceField");
+const operationalBalanceField = document.getElementById(
+    "operationalBalanceField"
+);
 const seeds = document.getElementById("seeds");
 
 // ************* Get the Preferred Network **************
@@ -32,7 +42,7 @@ async function getAccount(type) {
 
     // This uses the default faucet for Testnet/Devnet
     let faucetHost = null;
-    let amount = '100';
+    let amount = "100";
     if (type == "standby") {
         standbyResultField.innerHTML = results;
     } else {
@@ -48,7 +58,11 @@ async function getAccount(type) {
     }
 
     // -----------------------------------Create and fund a test account wallet
-    const my_wallet = (await client.fundWallet(null, { amount, faucetHost })).wallet;
+    const my_wallet = (await client.fundWallet(null, {
+            amount,
+            faucetHost
+        }))
+        .wallet;
 
     results += "\nGot a wallet.<br/>";
     if (type == "standby") {
@@ -161,7 +175,7 @@ async function sendXRP() {
         TransactionType: "Payment",
         Account: standby_wallet.address,
         Amount: xrpl.xrpToDrops(sendAmount),
-        Destination: standbyDestinationField.value
+        Destination: standbyDestinationField.value,
     });
 
     // ------------------------------------------------ Sign prepared instructions
@@ -217,7 +231,7 @@ async function oPsendXRP() {
         TransactionType: "Payment",
         Account: operational_wallet.address,
         Amount: xrpl.xrpToDrops(operationalAmountField.value),
-        Destination: operationalDestinationField.value
+        Destination: operationalDestinationField.value,
     });
 
     // ------------------------------------------------ Sign prepared instructions

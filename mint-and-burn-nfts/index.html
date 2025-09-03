@@ -33,7 +33,7 @@
                 <button type="button" onClick="getAccount('standby')">Create Standby Account</button><br />
 
                 <h2>Standby Account Info</h2>
-                <div class="appField">Account<br />
+                <div class="appField">Standby Account<br />
                     <div id="standbyAccountField" class="appValue"></div>
                 </div>
                 <div class="appField">Public Key<br />
@@ -69,11 +69,36 @@
                         Account</button><br />
                     <input type="checkbox" id="standbyDefault" checked="true" />
                     <label for="standbyDefault">Allow Rippling</label>
-                    <p>
+
+                    <p align="right">
                         <button type="button" onClick="createTrustline()">Create TrustLine</button>
                         <button type="button" onClick="sendCurrency()">Send Currency</button>
                         <button type="button" onClick="getBalances()">Get Balances</button>
                         <button type="button" onClick="sendXRP()">Send XRP &#8594;</button>
+                    </p>
+
+                    <p><strong>NFTs</strong></p>
+                    <div class="appField">
+                        NFToken URL<br />
+                        <input type="text" id="standbyTokenUrlField" class="appValue"
+                            value="ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf4dfuylqabf3oclgtqy55fbzdi" />
+                    </div>
+                    <div class="appField">
+                        Flags<br />
+                        <input class="appValue" type="text" id="standbyFlagsField" value="1" size="10" />
+                    </div>
+                    <div class="appField">
+                        NFToken ID<br />
+                        <input class="appValue" type="text" id="standbyTokenIdField" value="" />
+                    </div>
+                    <div class="appField">
+                        Transfer Fee<br />
+                        <input class="appValue" type="text" id="standbyTransferFeeField" value="" />
+                    </div>
+                    <p align="right">
+                        <button type="button" onClick="mintToken()">Mint NFToken</button>
+                        <button type="button" onClick="getTokens()">Get NFTokens</button>
+                        <button type="button" onClick="burnToken()">Burn NFToken</button>
                     </p>
                     <p><strong>Transaction Log</strong></p>
                     <div id="standbyResultField"></div>
@@ -86,7 +111,7 @@
                 <button type="button" onClick="getAccount('operational')">Create Operational Account</button><br />
 
                 <h2>Operational Account Info</h2>
-                <div class="appField">Account<br />
+                <div class="appField">Standby Account<br />
                     <div id="operationalAccountField" class="appValue"></div>
                 </div>
                 <div class="appField">Public Key<br />
@@ -122,11 +147,34 @@
                         Account</button><br />
                     <input type="checkbox" id="operationalDefault" checked="true" />
                     <label for="operationalDefault">Allow Rippling</label>
-                    <p>
+                    <p align="right">
                         <button type="button" onClick="oPcreateTrustline()">Create TrustLine</button>
                         <button type="button" onClick="oPsendCurrency()">Send Currency</button>
                         <button type="button" onClick="oPgetBalances()">Get Balances</button>
                         <button type="button" onClick="oPsendXRP()"> &#8592; Send XRP</button>
+                    </p>
+                    <p><strong>NFTs</strong></p>
+                    <div class="appField">
+                        NFToken URL<br />
+                        <input type="text" id="operationalTokenUrlField" class="appValue"
+                            value="ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf4dfuylqabf3oclgtqy55fbzdi" />
+                    </div>
+                    <div class="appField">
+                        Flags<br />
+                        <input class="appValue" type="text" id="operationalFlagsField" value="1" />
+                    </div>
+                    <div class="appField">
+                        NFToken ID<br />
+                        <input class="appValue" type="text" id="operationalTokenIdField" value="" />
+                    </div>
+                    <div class="appField">
+                        Transfer Fee<br />
+                        <input class="appValue" type="text" id="operationalTransferFeeField" value="" />
+                    </div>
+                    <p align="right">
+                        <button type="button" onClick="oPmintToken()">Mint NFToken</button>
+                        <button type="button" onClick="oPgetTokens()">Get NFTokens</button>
+                        <button type="button" onClick="oPburnToken()">Burn NFToken</button>
                     </p>
                     <p><strong>Transaction Log</strong></p>
                     <div id="operationalResultField"></div>
