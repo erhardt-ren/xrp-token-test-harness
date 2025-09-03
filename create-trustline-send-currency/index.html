@@ -1,0 +1,136 @@
+<html>
+
+<head>
+  <title>XRPL Token Test Harness</title>
+  <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+  <script src='https://unpkg.com/xrpl@2.6.0'></script>
+  <script>
+    if (typeof module !== "undefined") {
+      const xrpl = require('xrpl')
+    }
+  </script>
+
+</head>
+
+<body>
+  <div id="selectLedger">
+    <div class="appField">
+      <strong>Choose your ledger instance:</strong><br />
+      <input type="radio" id="tn" name="server" value="wss://s.altnet.rippletest.net:51233" checked>
+      <label for="testnet">Testnet</label>
+      &nbsp;&nbsp;
+      <input type="radio" id="dn" name="server" value="wss://s.devnet.rippletest.net:51233">
+      <label for="devnet">Devnet</label>
+    </div>
+    <div class="appField">
+      <button type="button" onClick="getAccountsFromSeeds()">Get Accounts From Seeds</button><br />
+      <textarea id="seeds" cols="40" rows="2"></textarea>
+    </div>
+  </div>
+  <div id="flexContainer">
+    <div class="flexColumn">
+      <div id="standbyApp">
+        <button type="button" onClick="getAccount('standby')">Create Standby Account</button><br />
+
+        <h2>Standby Account Info</h2>
+        <div class="appField">Account<br />
+          <div id="standbyAccountField" class="appValue"></div>
+        </div>
+        <div class="appField">Public Key<br />
+          <div id="standbyPubKeyField" class="appValue"></div>
+        </div>
+        <div class="appField">Private Key<br />
+          <div id="standbyPrivKeyField" class="appValue"></div>
+        </div>
+        <div class="appField"> Seed<br />
+          <div id="standbySeedField" class="appValue"></div>
+        </div>
+        <div class="appField"> XRP Balance<br />
+          <div id="standbyBalanceField" class="appValue"></div>
+        </div>
+
+        <div id="standbyTransact">
+          <p><strong>Send XRP or Currency</strong></p>
+          <div class="appField">
+            Amount<br />
+            <input id="standbyAmountField" class="appValue"></input>
+          </div>
+          <div class="appField">
+            Destination Account <br />
+            <input id="standbyDestinationField" class="appValue"></input>
+          </div>
+          <div class="appField">
+            Currency<br />
+            <input type="text" class="appValue" id="standbyCurrencyField" size="30" value="USD"></input>
+          </div>
+          <br /><br />
+          <button type="button" onClick="configureAccount('standby',document.querySelector('#standbyDefault').checked)">Configure Account</button><br />
+          <input type="checkbox" id="standbyDefault" checked="true" />
+          <label for="standbyDefault">Allow Rippling</label>
+          <p>
+            <button type="button" onClick="createTrustline()">Create TrustLine</button>
+            <button type="button" onClick="sendCurrency()">Send Currency</button>
+            <button type="button" onClick="getBalances()">Get Balances</button>
+            <button type="button" onClick="sendXRP()">Send XRP &#8594;</button>
+          </p>
+          <p><strong>Transaction Log</strong></p>
+          <div id="standbyResultField"></div>
+        </div>
+
+      </div>
+    </div>
+    <div class="flexColumn">
+      <div id="operationalApp">
+        <button type="button" onClick="getAccount('operational')">Create Operational Account</button><br />
+
+        <h2>Operational Account Info</h2>
+        <div class="appField">Account<br />
+          <div id="operationalAccountField" class="appValue"></div>
+        </div>
+        <div class="appField">Public Key<br />
+          <div id="operationalPubKeyField" class="appValue"></div>
+        </div>
+        <div class="appField">Private Key<br />
+          <div id="operationalPrivKeyField" class="appValue"></div>
+        </div>
+        <div class="appField"> Seed<br />
+          <div id="operationalSeedField" class="appValue"></div>
+        </div>
+        <div class="appField"> XRP Balance<br />
+          <div id="operationalBalanceField" class="appValue"></div>
+        </div>
+
+        <div id="operationalTransact">
+          <p><strong>Send XRP</strong></p>
+          <div class="appField">
+            Amount<br />
+            <input id="operationalAmountField" class="appValue"></input>
+          </div>
+          <div class="appField">
+            Destination Account <br />
+            <input id="operationalDestinationField" class="appValue"></input>
+          </div>
+          <div class="appField">
+            Currency<br />
+            <input type="text" class="appValue" id="operationalCurrencyField" size="30" value="USD"></input>
+          </div>
+          <br /><br />
+          <button type="button" onClick="configureAccount('standby',document.querySelector('#standbyDefault').checked)">Configure Account</button><br />
+          <input type="checkbox" id="operationalDefault" checked="true" />
+          <label for="operationalDefault">Allow Rippling</label>
+          <p>
+            <button type="button" onClick="oPcreateTrustline()">Create TrustLine</button>
+            <button type="button" onClick="oPsendCurrency()">Send Currency</button>
+            <button type="button" onClick="oPgetBalances()">Get Balances</button>
+            <button type="button" onClick="oPsendXRP()"> &#8592; Send XRP</button>
+          </p>
+          <p><strong>Transaction Log</strong></p>
+          <div id="operationalResultField"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
